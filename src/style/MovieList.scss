@@ -1,0 +1,35 @@
+.movie-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+
+  .movie-header{
+    margin-bottom: 40px;
+  }
+
+  .movie-list {
+    margin-bottom: 20px; 
+  }
+
+  .movie-filters{
+    margin: 20px 0 20px 0;
+  }
+  .movie-empty{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 200px;
+    align-items: center;
+  }
+
+  .pagination-container {
+    display: flex;
+    justify-content: end;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    z-index: 1;
+    padding:20px 0 20px 0;
+  }
+}
