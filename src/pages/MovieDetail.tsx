@@ -8,18 +8,23 @@ import { IMovieDetail } from "../types/movieTypes";
 
 import "../style/MovieDetail.scss";
 import "../style/Table.scss";
+import LoadingCircle from "../components/LoadingCircle";
 
 function MovieDetail() {
   const { id } = useParams<{ id: string | undefined }>();
   const [movie, setMovie] = useState<IMovieDetail | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchMovie = async () => {
       try {
+        setLoading(true);
         const movieData = await fetchMovieDetails(id);
         setMovie(movieData);
       } catch (error) {
         console.error("Error fetching movie details:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -35,8 +40,9 @@ function MovieDetail() {
           </Link>
         </Button>
       </div>
-
-      {movie ? (
+      {loading ? (
+        <LoadingCircle />
+      ) : movie ? (
         <div className="movie-detail">
           <div className="movie-content">
             <div className="movie-header">
