@@ -41,7 +41,6 @@ const moviesSlice = createSlice({
       })
       .addCase(fetchMoviesAsync.fulfilled, (state, action: PayloadAction<{Search:IMovie[],totalResults:number}>) => {
         state.status = "succeeded";
-        console.log("action.payload :>> ", action.payload);
         state.movies = action.payload?.Search;
         state.totalResults = action.payload?.totalResults;
       })

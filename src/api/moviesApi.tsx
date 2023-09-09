@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://www.omdbapi.com/";
+const BASE_URL = "https://www.omdbapi.com/";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const moviesApi = axios.create({
@@ -23,6 +23,7 @@ export const fetchMovies = async (page:number, search:string, type:string, year:
 
     return response.data || [];
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
